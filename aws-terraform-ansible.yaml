@@ -4,8 +4,8 @@ description: >
   This blueprint creates infrastructure on AWS using Terraform.
 
 imports:
-  - http://cloudify.co/spec/cloudify/5.0.5/types.yaml
-  - plugin:cloudify-terraform-plugin
+  - https://cloudify.co/spec/cloudify/5.1.0/types.yaml
+  - plugin:cloudify-terraform-plugin?version= >=0.15.0
   - plugin:cloudify-utilities-plugin?version= >=1.22.1
   - plugin:cloudify-ansible-plugin
 
@@ -25,11 +25,9 @@ inputs:
     default: 'https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_amd64.zip'
 
   terraform_plugins:
-    type: list
     default:
-      - 'https://releases.hashicorp.com/terraform-provider-template/2.1.2/terraform-provider-template_2.1.2_linux_amd64.zip'
-      - 'https://releases.hashicorp.com/terraform-provider-aws/2.49.0/terraform-provider-aws_2.49.0_linux_amd64.zip'
-
+      registry.terraform.io/hashicorp/aws/3.35.0/linux_amd64/:
+      
   terraform_executable:
     type: string
     default: '/tmp/terraform/bin/terraform'
