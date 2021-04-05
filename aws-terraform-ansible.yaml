@@ -18,28 +18,6 @@ dsl_definitions:
 
 inputs:
 
-  terraform_installation_source:
-    description: >
-      Where to get Terraform from.
-    type: string
-    default: 'https://releases.hashicorp.com/terraform/0.12.21/terraform_0.12.21_linux_amd64.zip'
-
-  terraform_plugins:
-    default:
-      registry.terraform.io/hashicorp/aws/3.35.0/linux_amd64/:
-      
-  terraform_executable:
-    type: string
-    default: '/tmp/terraform/bin/terraform'
-
-  terraform_plugins_dir:
-    type: string
-    default: '/tmp/terraform/plugins'
-
-  terraform_storage_path:
-    type: string
-    default: '/tmp/terraform/storage'
-
   agent_user:
     description: >
       The username of the agent running on the instance created from the image.
