@@ -91,23 +91,6 @@ node_templates:
 #                  ansible_user: { get_input: agent_user }
 #                  ansible_ssh_private_key_file: { get_attribute: [agent_key, private_key_export] }
 
-groups:
-
-  RG_1:
-    members:
-    - cloud_resources
-    - ansible_playbook
-
-policies:
-
-  scale_policy:
-    type: cloudify.policies.scaling
-    properties:
-      default_instances: { get_input: vm_count }
-      min_instances: 1
-      max_instances: 3
-    targets: [RG_1]
-
   agent_key:
     type: cloudify.keys.nodes.RSAKey
     properties:
